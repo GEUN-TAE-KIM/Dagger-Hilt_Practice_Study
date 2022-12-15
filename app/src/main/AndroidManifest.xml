@@ -4,6 +4,7 @@
     package="jp.co.archive_asia.dagger_hilt_practice">
 
     <application
+        android:name=".HiltTutorialApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
