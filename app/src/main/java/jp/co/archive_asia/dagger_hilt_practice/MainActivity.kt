@@ -6,6 +6,8 @@ import android.util.Log
 import dagger.hilt.android.AndroidEntryPoint
 import jp.co.archive_asia.dagger_hilt_practice.database.DatabaseAdapter
 import jp.co.archive_asia.dagger_hilt_practice.database.DatabaseService
+import jp.co.archive_asia.dagger_hilt_practice.hlit.CallInterceptor
+import jp.co.archive_asia.dagger_hilt_practice.hlit.ResponseInterceptor
 import jp.co.archive_asia.dagger_hilt_practice.network.NetworkAdapter
 import jp.co.archive_asia.dagger_hilt_practice.network.NetworkService
 import javax.inject.Inject
@@ -20,7 +22,11 @@ class MainActivity : AppCompatActivity() {
     // Field Injection
     // 해당 클래스에 생성하지 않아도 객체를 주입 받아 사용이 가능 한 것
     @Inject lateinit var databaseAdapter: DatabaseAdapter
+
    // @Inject lateinit var networkAdapter: NetworkAdapter
+
+    @CallInterceptor
+    @ResponseInterceptor
     @Inject lateinit var networkService: NetworkService
 
     override fun onCreate(savedInstanceState: Bundle?) {
