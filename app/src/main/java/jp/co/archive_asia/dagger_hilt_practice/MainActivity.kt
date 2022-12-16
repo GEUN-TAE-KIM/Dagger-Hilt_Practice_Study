@@ -25,9 +25,15 @@ class MainActivity : AppCompatActivity() {
 
    // @Inject lateinit var networkAdapter: NetworkAdapter
 
-    @CallInterceptor
+   // @CallInterceptor
     @ResponseInterceptor
-    @Inject lateinit var networkService: NetworkService
+    @Inject lateinit var networkService1: NetworkService
+
+    @ResponseInterceptor
+    @Inject lateinit var networkService2: NetworkService
+
+    @ResponseInterceptor
+    @Inject lateinit var networkService3: NetworkService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +43,9 @@ class MainActivity : AppCompatActivity() {
         databaseAdapter.log("Hello Hilt")
 
        // networkAdapter.log("Interface Binding")
-        networkService.performNetworkCall()
+        networkService1.performNetworkCall()
+        networkService2.performNetworkCall()
+        networkService3.performNetworkCall()
     }
 
     // Method Injection
