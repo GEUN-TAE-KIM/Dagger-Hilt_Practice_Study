@@ -6,6 +6,7 @@ import android.util.Log
 import dagger.hilt.android.AndroidEntryPoint
 import jp.co.archive_asia.dagger_hilt_practice.database.DatabaseAdapter
 import jp.co.archive_asia.dagger_hilt_practice.database.DatabaseService
+import jp.co.archive_asia.dagger_hilt_practice.network.NetworkAdapter
 import javax.inject.Inject
 
 // 자동으로 생명주기에 따라 적절한 시점에 Hilt 요소로 인스턴스 화 처리가 됨
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     // Field Injection
     // 해당 클래스에 생성하지 않아도 객체를 주입 받아 사용이 가능 한 것
     @Inject lateinit var databaseAdapter: DatabaseAdapter
+    @Inject lateinit var networkAdapter: NetworkAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "DatabaseAdapter : $databaseAdapter")
         databaseAdapter.log("Hello Hilt")
+
+        networkAdapter.log("Interface Binding")
     }
 
     // Method Injection
